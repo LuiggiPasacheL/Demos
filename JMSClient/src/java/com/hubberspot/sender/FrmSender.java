@@ -4,6 +4,12 @@
  */
 package com.hubberspot.sender;
 
+import Modelo.Alumno;
+import Modelo.Curso;
+import Modelo.DatosCurso;
+import Modelo.Matricula;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSContext;
@@ -186,7 +192,17 @@ public class FrmSender extends javax.swing.JFrame {
         String nombre = sc.nextLine();
         String apellido = sc.nextLine();
         int edad = sc.nextInt();*/
-        String message = seccionAlgo1;
+             
+        Matricula matricula=new Matricula();
+        Alumno alumno=new Alumno();
+        Curso curso=new Curso();
+        DatosCurso datoscurso=new DatosCurso();
+        List<Curso> cursos=new ArrayList<>();
+        curso.setDatos(datoscurso);
+        cursos.add(curso);
+        matricula.setAlumno(alumno);
+        matricula.setCursos(cursos);
+        String message = matricula.toString();  
         System.out.println("Sending message to JMS - ");
         jmsProducer.send(queue, message);
         System.out.println("Message send successfully!!!");
