@@ -15,24 +15,73 @@ import javax.jms.ConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
  * @author luigg
  */
 public class FrmSender extends javax.swing.JFrame {
-
+/*
     @Resource(mappedName = "jms/myConnectionFactory")
     private static ConnectionFactory connectionFactory;
     
     @Resource(mappedName = "jms/MyQueue")
     private static Queue queue;
     
+  */
+    
     /**
      * Creates new form FrmSender
      */
     public FrmSender() {
+       
         initComponents();
+        
+        FrmLogin ventana = new FrmLogin();
+        jLabel7.setText(ventana.alumno.getNombre());
+        jLabel8.setText(ventana.alumno.getApellido());
+        Curso c = new Curso();
+        
+        c.agregarCursoI("Algoritmica", "Seccion 1", "Wilker Atalaya", "Lunes", "18:00", "22:00");
+        c.agregarCursoI("Algoritmica", "Seccion 2", "Jorge Quispe", "Lunes", "18:00", "22:00");
+        jLabel1.setText(c.getCursoI(0).getCurso());
+        for(int i = 0; i < 2; i++){
+            jComboBox1.addItem(c.getCursoI(i).getDocente()+" / "+c.getCursoI(i).getSeccion()
+            +" / "+c.getCursoI(i).getDia()+" / Horario: "+c.getCursoI(i).getHoraInicio()+"-"+c.getCursoI(i).getHoraFin());
+        }
+        
+        c.agregarCursoII("Matemática Discreta", "Seccion 1", "Luiggi Pasache", "Martes", "8:00", "12:00");
+        c.agregarCursoII("Matemática Discreta", "Seccion 2", "Martin Vizcarra", "Martes", "18:00", "22:00");
+        jLabel2.setText(c.getCursoII(0).getCurso());
+        for(int i = 0; i < 2; i++){
+            jComboBox2.addItem(c.getCursoII(i).getDocente()+" / "+c.getCursoII(i).getSeccion()
+            +" / "+c.getCursoII(i).getDia()+" / Horario: "+c.getCursoII(i).getHoraInicio()+"-"+c.getCursoII(i).getHoraFin());
+        }
+        
+        c.agregarCursoIII("Física Electronica", "Seccion 1", "Francisco Sagasti", "Miercoles", "18:00", "22:00");
+        c.agregarCursoIII("Física Electronica", "Seccion 2", "Diego Montalvo", "Miercoles", "14:00", "18:00");
+        jLabel3.setText(c.getCursoIII(0).getCurso());
+        for(int i = 0; i < 2; i++){
+            jComboBox3.addItem(c.getCursoIII(i).getDocente()+" / "+c.getCursoIII(i).getSeccion()
+            +" / "+c.getCursoIII(i).getDia()+" / Horario: "+c.getCursoIII(i).getHoraInicio()+"-"+c.getCursoIII(i).getHoraFin());
+        }
+        
+        c.agregarCursoIV("Ingeniería Economica", "Seccion 1", "Abimael Guzmán", "Jueves", "17:00", "22:00");
+        c.agregarCursoIV("Ingeniería Economica", "Seccion 2", "Pedro Castillo", "Jueves", "8:00", "13:00");
+        jLabel4.setText(c.getCursoIV(0).getCurso());
+        for(int i = 0; i < 2; i++){
+            jComboBox4.addItem(c.getCursoIV(i).getDocente()+" / "+c.getCursoIV(i).getSeccion()
+            +" / "+c.getCursoIV(i).getDia()+" / Horario: "+c.getCursoIV(i).getHoraInicio()+"-"+c.getCursoIV(i).getHoraFin());
+        }
+        
+        c.agregarCursoV("Sistemas Digitales", "Seccion 1", "Keiko Fujimori", "Viernes", "8:00", "12:00");
+        c.agregarCursoV("Sistemas Digitales", "Seccion 2", "Alan Garcia", "Viernes", "18:00", "22:00");
+        jLabel5.setText(c.getCursoV(0).getCurso());
+        for(int i = 0; i < 2; i++){
+            jComboBox5.addItem(c.getCursoV(i).getDocente()+" / "+c.getCursoV(i).getSeccion()
+            +" / "+c.getCursoV(i).getDia()+" / Horario: "+c.getCursoV(i).getHoraInicio()+"-"+c.getCursoV(i).getHoraFin());
+        }
     }
 
     /**
@@ -56,6 +105,8 @@ public class FrmSender extends javax.swing.JFrame {
         jComboBox5 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Emisor");
@@ -67,59 +118,54 @@ public class FrmSender extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seccion 1 / SABADO 8hrs - 13 hrs", "Seccion 2 / LUNES 8hrs - 13 hrs" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Algoritmica");
+        jLabel1.setToolTipText("");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seccion 1 / MARTES 8hrs - 13 hrs", "Seccion 2 / MIERCOLES 8hrs - 13 hrs" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Algoritmica 2");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seccion 1 / JUEVES 8hrs - 13 hrs", "Seccion 2 / LUNES 14hrs - 19 hrs" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Algoritmica 3");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seccion 1 / VIERNES 8hrs - 13 hrs", "Seccion 2 / MIERCOLES 8hrs - 13 hrs" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Algoritmica 4");
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seccion 1 / JUEVES 8hrs - 13 hrs", "Seccion 2 / DOMINGOS 8hrs - 13 hrs" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox5ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Algoritmica 5");
-
         jLabel6.setText("<html>\n<h1>Matricula</h1>\n</html>");
+
+        jLabel7.setText("jLabel7");
+
+        jLabel8.setText("jLabel8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 42, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,13 +193,20 @@ public class FrmSender extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(153, 153, 153)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,15 +237,23 @@ public class FrmSender extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String seccionAlgo1 = jComboBox1.getSelectedItem().toString();
-        
-        JMSContext jmsContext = connectionFactory.createContext();
+        FrmLogin ventana = new FrmLogin();
+        JMSContext jmsContext = ventana.connectionFactory.createContext();
         JMSProducer jmsProducer = jmsContext.createProducer();
+        
+        String cursoI = jComboBox1.getSelectedItem().toString();
+        String cursoII = jComboBox2.getSelectedItem().toString();
+        String cursoIII = jComboBox3.getSelectedItem().toString();
+        String cursoIV = jComboBox4.getSelectedItem().toString();
+        String cursoV = jComboBox5.getSelectedItem().toString();
+        
+        
+        
         /*Scanner sc = new Scanner(System.in);
         String nombre = sc.nextLine();
         String apellido = sc.nextLine();
         int edad = sc.nextInt();*/
-             
+         /*    
         Matricula matricula=new Matricula();
         Alumno alumno=new Alumno();
         Curso curso=new Curso();
@@ -201,10 +262,32 @@ public class FrmSender extends javax.swing.JFrame {
         curso.setDatos(datoscurso);
         cursos.add(curso);
         matricula.setAlumno(alumno);
-        matricula.setCursos(cursos);
-        String message = matricula.toString();  
+        matricula.setCursos(cursos);*/
+        String messageI = cursoI.toString();
+        String messageII = cursoII.toString();
+        String messageIII = cursoIII.toString();
+        String messageIV = cursoIV.toString();
+        String messageV = cursoV.toString();
+        
+        List<String> matricula = new ArrayList();
+        matricula.add(messageI);
+        matricula.add(messageII);
+        matricula.add(messageIII);
+        matricula.add(messageIV);
+        matricula.add(messageV);
+        matricula.add(ventana.alumno.getNombre());
+        matricula.add(ventana.alumno.getApellido());
+        
+        String str = "";
+        for (String matriculas : matricula) {
+	str+= matriculas+",";
+	}
+        
+        Alumno al = new Alumno(ventana.alumno.getNombre(), ventana.alumno.getApellido(), ventana.alumno.getCodigo(), ventana.alumno.getContrasena());
+        Matricula m = new Matricula(al, str);
+
         System.out.println("Sending message to JMS - ");
-        jmsProducer.send(queue, message);
+        jmsProducer.send(ventana.queue, str);
         System.out.println("Message send successfully!!!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -256,6 +339,8 @@ public class FrmSender extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+       
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmSender().setVisible(true);
@@ -276,5 +361,7 @@ public class FrmSender extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

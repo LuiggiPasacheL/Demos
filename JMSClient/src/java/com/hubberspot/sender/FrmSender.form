@@ -25,7 +25,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
@@ -61,15 +65,26 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="230" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -114,10 +129,7 @@
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Seccion 1 / SABADO 8hrs - 13 hrs"/>
-            <StringItem index="1" value="Seccion 2 / LUNES 8hrs - 13 hrs"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -129,16 +141,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Algoritmica"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Seccion 1 / MARTES 8hrs - 13 hrs"/>
-            <StringItem index="1" value="Seccion 2 / MIERCOLES 8hrs - 13 hrs"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -149,17 +158,11 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Algoritmica 2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Seccion 1 / JUEVES 8hrs - 13 hrs"/>
-            <StringItem index="1" value="Seccion 2 / LUNES 14hrs - 19 hrs"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -170,17 +173,11 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Algoritmica 3"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox4">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Seccion 1 / VIERNES 8hrs - 13 hrs"/>
-            <StringItem index="1" value="Seccion 2 / MIERCOLES 8hrs - 13 hrs"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -191,17 +188,11 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Algoritmica 4"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox5">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Seccion 1 / JUEVES 8hrs - 13 hrs"/>
-            <StringItem index="1" value="Seccion 2 / DOMINGOS 8hrs - 13 hrs"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -212,13 +203,20 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Algoritmica 5"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;h1&gt;Matricula&lt;/h1&gt;&#xa;&lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel7"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel8"/>
       </Properties>
     </Component>
   </SubComponents>

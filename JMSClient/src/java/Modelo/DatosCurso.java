@@ -6,13 +6,15 @@ package Modelo;
  * @author luigg
  */
 public class DatosCurso {
+    String curso;
     String seccion;
     String docente;
     String dia;
     String horaFin;
     String horaInicio;
 
-    public DatosCurso(String seccion, String docente, String dia, String horaFin, String horaInicio) {
+    public DatosCurso(String curso, String seccion, String docente, String dia, String horaFin, String horaInicio) {
+        this.curso = curso;
         this.seccion = seccion;
         this.docente = docente;
         this.dia = dia;
@@ -43,6 +45,12 @@ public class DatosCurso {
     public String getHoraInicio() {
         return horaInicio;
     }
+
+    public String getCurso() {
+        return curso;
+    }
+    
+    
 
     @Override
     public String toString() {

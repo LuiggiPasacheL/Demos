@@ -9,32 +9,35 @@ package Modelo;
  * @author luigg
  */
 public class Alumno {
-    Matricula matricula;
-    String usuario;
+    String nombre;
+    String apellido;
+    String codigo;
     String contrasena;
 
-    public Matricula getMatricula() {
-        return matricula;
+    public Alumno(String nombre, String apellido, String codigo, String contrasena) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.codigo = codigo;
+        this.contrasena = contrasena;
+    }
+    
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setMatricula(Matricula matricula) {
-        this.matricula = matricula;
+    public String getApellido() {
+        return apellido;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public String getCodigo() {
+        return codigo;
     }
 
     public String getContrasena() {
         return contrasena;
     }
+    
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
+ 
     
 }

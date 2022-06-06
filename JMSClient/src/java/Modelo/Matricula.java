@@ -1,6 +1,7 @@
 
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,30 +9,37 @@ import java.util.List;
  * @author luigg
  */
 public class Matricula {
-    List<Curso> cursos;
     Alumno alumno;
+    String curso;
+
+    public Matricula(Alumno alumno, String curso) {
+        this.alumno = alumno;
+        this.curso = curso;
+    }
     
+    List<Matricula> m = new ArrayList();
+    
+    public void agregar(Alumno al, String cu){
+        Matricula mat = new Matricula(al, cu);
+        m.add(mat);
+    }
+    
+    
+
     public Alumno getAlumno() {
         return alumno;
     }
 
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
-    }
-
-    public List<Curso> getCursos() {
-        return cursos;
-    }
-
-    public void setCursos(List<Curso> cursos) {
-        this.cursos = cursos;
+    public String getCurso() {
+        return curso;
     }
 
     @Override
     public String toString() {
-        return "Matricula{" + "cursos=" + cursos + ", alumno=" + alumno + '}';
+        return "Matricula{" + "alumno=" + alumno + ", curso=" + curso + '}';
     }
-
+    
+   
 
     
 }

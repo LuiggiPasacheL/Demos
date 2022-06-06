@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luigg/Proyectos/Demos/JMSClient/src/java/com/hubberspot/receiver/MessageReceiver.java</file>
-            <file>file:/C:/Users/luigg/Proyectos/Demos/JMSClient/src/java/com/hubberspot/sender/MessageSender.java</file>
+            <file>file:/D:/Demos/Demos/JMSClient/src/java/Modelo/Matricula.java</file>
+            <file>file:/D:/Demos/Demos/JMSClient/src/java/com/hubberspot/receiver/FrmReceiver.java</file>
+            <file>file:/D:/Demos/Demos/JMSClient/src/java/com/hubberspot/sender/FrmLogin.java</file>
+            <file>file:/D:/Demos/Demos/JMSClient/src/java/com/hubberspot/sender/FrmSender.java</file>
         </group>
     </open-files>
 </project-private>
