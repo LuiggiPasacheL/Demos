@@ -4,12 +4,27 @@
  */
 package com.hubberspot.receiver;
 
+import javax.annotation.Resource;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSConsumer;
+import javax.jms.JMSContext;
+import javax.jms.Queue;
+import javax.swing.JLabel;
+
 /**
  *
  * @author luigg
  */
 public class FrmReceiver extends javax.swing.JFrame {
-
+    @Resource(mappedName = "jms/myConnectionFactory")
+    private static ConnectionFactory connectionFactory;
+    
+    @Resource(mappedName = "jms/MyQueue")  
+    private static Queue queue;
+    
+    public void actualizarLabel(String message){
+        jLabel2.setText(message);
+    }
     /**
      * Creates new form FrmReceiver
      */
@@ -26,27 +41,37 @@ public class FrmReceiver extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Receptor");
 
-        jLabel1.setText("jLabel1");
+        jLabel2.setText("jLabel2");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(jLabel2)
+                .addContainerGap(303, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel1)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         pack();
@@ -82,12 +107,22 @@ public class FrmReceiver extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmReceiver().setVisible(true);
+                FrmReceiver hola = new FrmReceiver();
+                hola.setVisible(true);
+                JMSContext jmsContext = connectionFactory.createContext();
+                JMSConsumer jmsConsumer = jmsContext.createConsumer(queue);
+                System.out.println("Receiving Messages...\n");
+                String message = jmsConsumer.receiveBody(String.class);
+                System.out.println("Message received -\n" + message);
+                hola.actualizarLabel(message);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
