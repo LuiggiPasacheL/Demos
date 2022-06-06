@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo;
 
 /**
@@ -10,4 +7,14 @@ package Modelo;
  */
 public class Matricula {
     Curso cursos[];
+    Alumno alumno;
+
+    public Matricula() {
+        cursos = new Curso[5];
+        for(int i = 0; i < 5; i++){
+            cursos[i] = new Curso();
+        }
+    }
+    
+    
 }
