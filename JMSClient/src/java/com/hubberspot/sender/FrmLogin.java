@@ -7,8 +7,6 @@ package com.hubberspot.sender;
 import Modelo.Alumno;
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
-import javax.jms.JMSContext;
-import javax.jms.JMSProducer;
 import javax.jms.Queue;
 import javax.swing.JOptionPane;
 
@@ -34,6 +32,7 @@ public class FrmLogin extends javax.swing.JFrame {
     public static Alumno alumno = new Alumno("Oscar", "Yanfer", "19200260", "admin");
     public static String nombre = "";
     public static String apellido = "";
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,6 +128,10 @@ public class FrmLogin extends javax.swing.JFrame {
             System.out.println("error");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
