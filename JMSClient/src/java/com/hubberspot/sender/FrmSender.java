@@ -1,21 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.hubberspot.sender;
 
 import Modelo.Alumno;
 import Modelo.Curso;
-import Modelo.DatosCurso;
 import Modelo.Matricula;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.Resource;
-import javax.jms.ConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
-import javax.jms.Queue;
-import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -109,6 +101,7 @@ public class FrmSender extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Emisor");
@@ -190,6 +183,8 @@ public class FrmSender extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel9.setText("Bienvenido:");
+
+        jLabel10.setText("<html><b>Alumno:</b></html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -280,22 +275,6 @@ public class FrmSender extends javax.swing.JFrame {
         String cursoIV = jComboBox4.getSelectedItem().toString();
         String cursoV = jComboBox5.getSelectedItem().toString();
         
-        
-        
-        /*Scanner sc = new Scanner(System.in);
-        String nombre = sc.nextLine();
-        String apellido = sc.nextLine();
-        int edad = sc.nextInt();*/
-         /*    
-        Matricula matricula=new Matricula();
-        Alumno alumno=new Alumno();
-        Curso curso=new Curso();
-        DatosCurso datoscurso=new DatosCurso();
-        List<Curso> cursos=new ArrayList<>();
-        curso.setDatos(datoscurso);
-        cursos.add(curso);
-        matricula.setAlumno(alumno);
-        matricula.setCursos(cursos);*/
         String messageI = cursoI.toString();
         String messageII = cursoII.toString();
         String messageIII = cursoIII.toString();
@@ -389,6 +368,7 @@ public class FrmSender extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

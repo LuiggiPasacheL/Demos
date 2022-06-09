@@ -1,38 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.hubberspot.receiver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
 import javax.jms.Queue;
-import javax.swing.JLabel;
 
 /**
  *
  * @author luigg
  */
 public class FrmReceiver extends javax.swing.JFrame {
+
     @Resource(mappedName = "jms/myConnectionFactory")
     private static ConnectionFactory connectionFactory;
-    
-    @Resource(mappedName = "jms/MyQueue")  
+
+    @Resource(mappedName = "jms/MyQueue")
     private static Queue queue;
     
-    public void actualizarLabel(String a, String b, String c, String d, String e, String f, String g){
+    private static JMSConsumer jmsConsumer;
+    
+    private static FrmReceiver hola = new FrmReceiver();
+
+    public void actualizarLabel(String a, String b, String c, String d, String e, String f, String g) {
         jLabel1.setText(a);
         jLabel2.setText(b);
         jLabel3.setText(c);
         jLabel4.setText(d);
         jLabel5.setText(e);
-        jLabel6.setText("Alumno:  "+f+" "+g+", el reporte de matrícula es el siguiente:");
+        jLabel6.setText("Alumno:  " + f + " " + g + ", el reporte de matrícula es el siguiente:");
     }
+
     /**
      * Creates new form FrmReceiver
      */
@@ -84,7 +85,9 @@ public class FrmReceiver extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel7.setText("REPORTE DE MATRICULA");
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/btnCerrar_.png"))); // NOI18N
+        btnCerrar.setBackground(new java.awt.Color(156, 156, 156));
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setText("<html><h1>Siguiente Mensaje</h1></html>");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
@@ -95,47 +98,45 @@ public class FrmReceiver extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(212, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(181, 181, 181))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2))))
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel7)
-                .addGap(39, 39, 39)
+                .addGap(4, 4, 4)
                 .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -143,8 +144,29 @@ public class FrmReceiver extends javax.swing.JFrame {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        System.out.println("Receiving Messages...\n");
+        String message = jmsConsumer.receiveBody(String.class);
+
+        String[] strArr = message.split(",");//Splitting using whitespace
+        ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArr));
+
+        System.out.println("Message received -\n" + message);
+        hola.actualizarLabel(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5), list.get(6));
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+        System.out.println("Receiving Messages...\n");
+        String message = jmsConsumer.receiveBody(String.class);
+
+        String[] strArr = message.split(",");//Splitting using whitespace
+        ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArr));
+
+        System.out.println("Message received -\n" + message);
+        hola.actualizarLabel(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5), list.get(6));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -176,27 +198,21 @@ public class FrmReceiver extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmReceiver hola = new FrmReceiver();
                 hola.setVisible(true);
+                
                 JMSContext jmsContext = connectionFactory.createContext();
-                JMSConsumer jmsConsumer = jmsContext.createConsumer(queue);
+                jmsConsumer = jmsContext.createConsumer(queue);
                 System.out.println("Receiving Messages...\n");
                 String message = jmsConsumer.receiveBody(String.class);
-                
 
-                
+                String[] strArr = message.split(",");//Splitting using whitespace
+                ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArr));
 
-        String[] strArr = message.split(",");//Splitting using whitespace
-        ArrayList<String> list = new ArrayList<String>(Arrays.asList(strArr));
-        
-        
-        
                 System.out.println("Message received -\n" + message);
                 hola.actualizarLabel(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5), list.get(6));
             }
         });
-        
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

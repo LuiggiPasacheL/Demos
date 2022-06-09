@@ -298,5 +298,10 @@
         <Property name="text" type="java.lang.String" value="Bienvenido:"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;b&gt;Alumno:&lt;/b&gt;&lt;/html&gt;"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
