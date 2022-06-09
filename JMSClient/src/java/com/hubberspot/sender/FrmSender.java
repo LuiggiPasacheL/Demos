@@ -37,46 +37,47 @@ public class FrmSender extends javax.swing.JFrame {
     public FrmSender() {
        
         initComponents();
+        this.setLocationRelativeTo(null);
         
         FrmLogin ventana = new FrmLogin();
         jLabel7.setText(ventana.alumno.getNombre());
         jLabel8.setText(ventana.alumno.getApellido());
         Curso c = new Curso();
         
-        c.agregarCursoI("Algoritmica", "Seccion 1", "Wilker Atalaya", "Lunes", "18:00", "22:00");
-        c.agregarCursoI("Algoritmica", "Seccion 2", "Jorge Quispe", "Lunes", "18:00", "22:00");
+        c.agregarCursoI("Algorítmica", "Seccion 1", "Wilker Atalaya", "Lunes", "22:00", "18:00");
+        c.agregarCursoI("Algorítmica", "Seccion 2", "Jorge Quispe", "Lunes", "22:00", "18:00");
         jLabel1.setText(c.getCursoI(0).getCurso());
         for(int i = 0; i < 2; i++){
             jComboBox1.addItem(c.getCursoI(i).getDocente()+" / "+c.getCursoI(i).getSeccion()
             +" / "+c.getCursoI(i).getDia()+" / Horario: "+c.getCursoI(i).getHoraInicio()+"-"+c.getCursoI(i).getHoraFin());
         }
         
-        c.agregarCursoII("Matemática Discreta", "Seccion 1", "Luiggi Pasache", "Martes", "8:00", "12:00");
-        c.agregarCursoII("Matemática Discreta", "Seccion 2", "Martin Vizcarra", "Martes", "18:00", "22:00");
+        c.agregarCursoII("Matemática Discreta", "Seccion 1", "Luiggi Pasache", "Martes", "12:00", "8:00");
+        c.agregarCursoII("Matemática Discreta", "Seccion 2", "Martin Vizcarra", "Martes", "22:00", "18:00");
         jLabel2.setText(c.getCursoII(0).getCurso());
         for(int i = 0; i < 2; i++){
             jComboBox2.addItem(c.getCursoII(i).getDocente()+" / "+c.getCursoII(i).getSeccion()
             +" / "+c.getCursoII(i).getDia()+" / Horario: "+c.getCursoII(i).getHoraInicio()+"-"+c.getCursoII(i).getHoraFin());
         }
         
-        c.agregarCursoIII("Física Electronica", "Seccion 1", "Francisco Sagasti", "Miercoles", "18:00", "22:00");
-        c.agregarCursoIII("Física Electronica", "Seccion 2", "Diego Montalvo", "Miercoles", "14:00", "18:00");
+        c.agregarCursoIII("Física Electrónica", "Seccion 1", "Francisco Sagasti", "Miercoles", "2200", "18:00");
+        c.agregarCursoIII("Física Electrónica", "Seccion 2", "Diego Montalvo", "Miercoles", "18:00", "14:00");
         jLabel3.setText(c.getCursoIII(0).getCurso());
         for(int i = 0; i < 2; i++){
             jComboBox3.addItem(c.getCursoIII(i).getDocente()+" / "+c.getCursoIII(i).getSeccion()
             +" / "+c.getCursoIII(i).getDia()+" / Horario: "+c.getCursoIII(i).getHoraInicio()+"-"+c.getCursoIII(i).getHoraFin());
         }
         
-        c.agregarCursoIV("Ingeniería Economica", "Seccion 1", "Abimael Guzmán", "Jueves", "17:00", "22:00");
-        c.agregarCursoIV("Ingeniería Economica", "Seccion 2", "Pedro Castillo", "Jueves", "8:00", "13:00");
+        c.agregarCursoIV("Ingeniería Económica", "Seccion 1", "Carlos Vazquez", "Jueves", "22:00", "17:00");
+        c.agregarCursoIV("Ingeniería Económica", "Seccion 2", "Pedro Castillo", "Jueves", "13:00", "8:00");
         jLabel4.setText(c.getCursoIV(0).getCurso());
         for(int i = 0; i < 2; i++){
             jComboBox4.addItem(c.getCursoIV(i).getDocente()+" / "+c.getCursoIV(i).getSeccion()
             +" / "+c.getCursoIV(i).getDia()+" / Horario: "+c.getCursoIV(i).getHoraInicio()+"-"+c.getCursoIV(i).getHoraFin());
         }
         
-        c.agregarCursoV("Sistemas Digitales", "Seccion 1", "Keiko Fujimori", "Viernes", "8:00", "12:00");
-        c.agregarCursoV("Sistemas Digitales", "Seccion 2", "Alan Garcia", "Viernes", "18:00", "22:00");
+        c.agregarCursoV("Sistemas Digitales", "Seccion 1", "Keiko Fujimori", "Viernes", "12:00", "8:00");
+        c.agregarCursoV("Sistemas Digitales", "Seccion 2", "Alan Garcia", "Viernes", "22:00", "18:00");
         jLabel5.setText(c.getCursoV(0).getCurso());
         for(int i = 0; i < 2; i++){
             jComboBox5.addItem(c.getCursoV(i).getDocente()+" / "+c.getCursoV(i).getSeccion()
@@ -107,129 +108,161 @@ public class FrmSender extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Emisor");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(850, 600));
+        setMinimumSize(new java.awt.Dimension(850, 600));
+        setPreferredSize(new java.awt.Dimension(850, 600));
 
+        jButton1.setBackground(new java.awt.Color(0, 51, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Matricularse");
+        jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jComboBox1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setText("Curso_1");
         jLabel1.setToolTipText("");
 
+        jComboBox2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setText("Curso_2");
+
+        jComboBox3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel3.setText("Curso_3");
+
+        jComboBox4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel4.setText("Curso_4");
+
+        jComboBox5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox5ActionPerformed(evt);
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel5.setText("Curso_5");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setText("<html>\n<h1>Matricula</h1>\n</html>");
 
-        jLabel7.setText("jLabel7");
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel7.setText("Nombre");
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel8.setText("Apellido");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel9.setText("Bienvenido:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel3))
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel9)
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel4))
+                        .addGap(331, 331, 331)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2)))
-                .addGap(56, 56, 56))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(jButton1)
-                .addContainerGap(230, Short.MAX_VALUE))
+                        .addGap(340, 340, 340)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addGap(11, 11, 11)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(55, 55, 55))
+                            .addComponent(jLabel1)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
 
         pack();
@@ -363,5 +396,6 @@ public class FrmSender extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
