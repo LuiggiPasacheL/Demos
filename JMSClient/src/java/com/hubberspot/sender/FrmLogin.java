@@ -5,6 +5,10 @@
 package com.hubberspot.sender;
 
 import Modelo.Alumno;
+import SqlLite.controller.Login_Controller;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
 import javax.jms.Queue;
@@ -16,6 +20,9 @@ import javax.swing.JOptionPane;
  */
 public class FrmLogin extends javax.swing.JFrame {
     
+    private Connection conn;
+private ResultSet rst;
+private PreparedStatement pst;
  @Resource(mappedName = "jms/myConnectionFactory")
     public static ConnectionFactory connectionFactory;
     
@@ -43,11 +50,13 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         lblUsuario = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txUname = new javax.swing.JTextField();
         lblContraseña = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JPasswordField();
+        txPass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -55,12 +64,17 @@ public class FrmLogin extends javax.swing.JFrame {
         lblUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblUsuario.setText("Usuario:");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txUname.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         lblContraseña.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblContraseña.setText("Contraseña:");
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txPass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txPassActionPerformed(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Iniciar sesion.jpg"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +86,14 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Proceso Único de Matrícula");
 
+        jLabel3.setText("<html><h1>Iniciar sesión</h1></html>");
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,9 +103,9 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txPass, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblContraseña)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txUname, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(138, 138, 138))
@@ -99,11 +121,11 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addComponent(lblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txUname, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblContraseña)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txPass, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -114,7 +136,8 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(jTextField1.getText().equalsIgnoreCase(alumno.getCodigo()) && jTextField2.getText().equalsIgnoreCase(alumno.getContrasena())){
+      /*
+        if(txUname.getText().equalsIgnoreCase(alumno.getCodigo()) && txPass.getText().equalsIgnoreCase(alumno.getContrasena())){
             System.out.println("bienvenido");
             JOptionPane.showMessageDialog(this, "Se encuentra en horario de matricula");
             nombre = alumno.getNombre();
@@ -127,11 +150,60 @@ public class FrmLogin extends javax.swing.JFrame {
         else{
             System.out.println("error");
         }
+        */
+        
+        String uname,pwd;
+        boolean status=false;
+   
+        uname=txUname.getText();
+        pwd=txPass.getText();
+        
+        Alumno loginModel= new Alumno();
+        loginModel.setNombre(uname);
+        loginModel.setContrasena(pwd);
+
+        
+      Login_Controller model= new Login_Controller(conn);
+         status= model.login(loginModel);
+         
+         if(status==true){
+
+            System.out.println("bienvenido");
+            JOptionPane.showMessageDialog(this, "Se encuentra en horario de matricula");
+            nombre = alumno.getNombre();
+            apellido = alumno.getApellido();
+            FrmSender ventana = new FrmSender();
+            ventana.setVisible(true);
+            this.setVisible(false);
+             
+         }
+         else if(txUname.getText().isEmpty() && String.valueOf(txPass.getPassword()).isEmpty()){
+                               JOptionPane.showMessageDialog(rootPane, "Username and Password still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
+
+             
+         }
+         else if(txUname.getText().equals(""))
+         {
+                  JOptionPane.showMessageDialog(rootPane, "Username still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
+         }else if(String.valueOf(txPass.getPassword()).equals(""))
+         {
+                  JOptionPane.showMessageDialog(rootPane, "Password still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
+                  
+         }
+ 
+         else{
+               JOptionPane.showMessageDialog(rootPane, "Invalid Username and Password", "Info", JOptionPane.INFORMATION_MESSAGE);
+             
+         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void txPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,14 +239,17 @@ public class FrmLogin extends javax.swing.JFrame {
                 
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    public javax.swing.JTextField jTextField1;
-    public javax.swing.JPasswordField jTextField2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;
+    public javax.swing.JPasswordField txPass;
+    public javax.swing.JTextField txUname;
     // End of variables declaration//GEN-END:variables
 }

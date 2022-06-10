@@ -31,9 +31,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField2" min="-2" pref="318" max="-2" attributes="0"/>
+                          <Component id="txPass" min="-2" pref="318" max="-2" attributes="0"/>
                           <Component id="lblContraseña" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="318" max="-2" attributes="0"/>
+                          <Component id="txUname" min="-2" pref="318" max="-2" attributes="0"/>
                           <Component id="lblUsuario" min="-2" pref="345" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -55,11 +55,11 @@
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="txUname" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblContraseña" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField2" min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="txPass" min="-2" pref="32" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="91" max="32767" attributes="0"/>
@@ -76,7 +76,7 @@
         <Property name="text" type="java.lang.String" value="Usuario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txUname">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="0"/>
@@ -94,12 +94,15 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jTextField2">
+    <Component class="javax.swing.JPasswordField" name="txPass">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txPassActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
