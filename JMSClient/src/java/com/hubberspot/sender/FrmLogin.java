@@ -19,22 +19,23 @@ import javax.swing.JOptionPane;
  * @author OSCAR
  */
 public class FrmLogin extends javax.swing.JFrame {
-    
+
     private Connection conn;
-private ResultSet rst;
-private PreparedStatement pst;
- @Resource(mappedName = "jms/myConnectionFactory")
+    private ResultSet rst;
+    private PreparedStatement pst;
+    @Resource(mappedName = "jms/myConnectionFactory")
     public static ConnectionFactory connectionFactory;
-    
+
     @Resource(mappedName = "jms/MyQueue")
     public static Queue queue;
+
     /**
      * Creates new form FrmLogin
      */
     public FrmLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
     public static Alumno alumno = new Alumno("Oscar", "Yanfer", "19200260", "admin");
     public static String nombre = "";
@@ -136,7 +137,7 @@ private PreparedStatement pst;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-      /*
+        /*
         if(txUname.getText().equalsIgnoreCase(alumno.getCodigo()) && txPass.getText().equalsIgnoreCase(alumno.getContrasena())){
             System.out.println("bienvenido");
             JOptionPane.showMessageDialog(this, "Se encuentra en horario de matricula");
@@ -150,23 +151,22 @@ private PreparedStatement pst;
         else{
             System.out.println("error");
         }
-        */
-        
-        String uname,pwd;
-        boolean status=false;
-   
-        uname=txUname.getText();
-        pwd=txPass.getText();
-        
-        Alumno loginModel= new Alumno();
+         */
+
+        String uname, pwd;
+        boolean status = false;
+
+        uname = txUname.getText();
+        pwd = txPass.getText();
+
+        Alumno loginModel = new Alumno();
         loginModel.setNombre(uname);
         loginModel.setContrasena(pwd);
 
-        
-      Login_Controller model= new Login_Controller(conn);
-         status= model.login(loginModel);
-         
-         if(status==true){
+        Login_Controller model = new Login_Controller(conn);
+        status = model.login(loginModel);
+
+        if (status == true) {
 
             System.out.println("bienvenido");
             JOptionPane.showMessageDialog(this, "Se encuentra en horario de matricula");
@@ -175,26 +175,19 @@ private PreparedStatement pst;
             FrmSender ventana = new FrmSender();
             ventana.setVisible(true);
             this.setVisible(false);
-             
-         }
-         else if(txUname.getText().isEmpty() && String.valueOf(txPass.getPassword()).isEmpty()){
-                               JOptionPane.showMessageDialog(rootPane, "Username and Password still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
 
-             
-         }
-         else if(txUname.getText().equals(""))
-         {
-                  JOptionPane.showMessageDialog(rootPane, "Username still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
-         }else if(String.valueOf(txPass.getPassword()).equals(""))
-         {
-                  JOptionPane.showMessageDialog(rootPane, "Password still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
-                  
-         }
- 
-         else{
-               JOptionPane.showMessageDialog(rootPane, "Invalid Username and Password", "Info", JOptionPane.INFORMATION_MESSAGE);
-             
-         } 
+        } else if (txUname.getText().isEmpty() && String.valueOf(txPass.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Username and Password still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
+
+        } else if (txUname.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Username still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
+        } else if (String.valueOf(txPass.getPassword()).equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Password still empty", "Info", JOptionPane.INFORMATION_MESSAGE);
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Invalid Username and Password", "Info", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -236,10 +229,10 @@ private PreparedStatement pst;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmLogin().setVisible(true);
-                
+
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
