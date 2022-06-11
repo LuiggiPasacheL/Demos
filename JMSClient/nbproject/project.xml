@@ -13,6 +13,7 @@
             </test-roots>
             <included-library dirs="200">libs.MyLibrary.classpath</included-library>
             <included-library dirs="200">file.reference.sqlite-jdbc-3.20.1.jar</included-library>
+            <included-library dirs="200">file.reference.sqlite-jdbc-3.20.1.jar-1</included-library>
         </data>
     </configuration>
 </project>

@@ -137,10 +137,10 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        /*
+        
         if(txUname.getText().equalsIgnoreCase(alumno.getCodigo()) && txPass.getText().equalsIgnoreCase(alumno.getContrasena())){
             System.out.println("bienvenido");
-            JOptionPane.showMessageDialog(this, "Se encuentra en horario de matricula");
+            JOptionPane.showMessageDialog(this, "Bienvenido! , Se encuentra en horario de matricula");
             nombre = alumno.getNombre();
             apellido = alumno.getApellido();
             FrmSender ventana = new FrmSender();
@@ -151,7 +151,7 @@ public class FrmLogin extends javax.swing.JFrame {
         else{
             System.out.println("error");
         }
-         */
+         
 
         String uname, pwd;
         boolean status = false;
@@ -168,8 +168,8 @@ public class FrmLogin extends javax.swing.JFrame {
 
         if (status == true) {
 
-            System.out.println("bienvenido");
-            JOptionPane.showMessageDialog(this, "Se encuentra en horario de matricula");
+           
+            JOptionPane.showMessageDialog(this, " ¡Bienvenido! Se encuentra en horario de matricula");
             nombre = alumno.getNombre();
             apellido = alumno.getApellido();
             FrmSender ventana = new FrmSender();

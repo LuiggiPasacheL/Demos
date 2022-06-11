@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author luigg
  */
 public class FrmSender extends javax.swing.JFrame {
+    int a=30, b=30,r=30, d=30,e=30,f=30,h=30,g=30,l=30,j=30; 
 /*
+    
     @Resource(mappedName = "jms/myConnectionFactory")
     private static ConnectionFactory connectionFactory;
     
@@ -275,18 +278,117 @@ public class FrmSender extends javax.swing.JFrame {
         String cursoIV = jComboBox4.getSelectedItem().toString();
         String cursoV = jComboBox5.getSelectedItem().toString();
         
-        String messageI = cursoI.toString();
-        String messageII = cursoII.toString();
-        String messageIII = cursoIII.toString();
-        String messageIV = cursoIV.toString();
-        String messageV = cursoV.toString();
+      String messageI = new String();
+        String messageII= new String();
+        String messageIII= new String();
+         String messageIV= new String();
+         String messageV= new String();
+         List<String> matricula = new ArrayList();
+         
+       if(cursoI=="Wilker Atalaya / Seccion 1 / Lunes / Horario: 18:00-22:00"){
+            if(a>0){
+              messageI = cursoI.toString();
+              
+             a--;
+             matricula.add(messageI+"/ Vacantes:"+a);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
         
-        List<String> matricula = new ArrayList();
-        matricula.add(messageI);
-        matricula.add(messageII);
-        matricula.add(messageIII);
-        matricula.add(messageIV);
-        matricula.add(messageV);
+       }else{
+        if(b>0){
+              messageI = cursoI.toString();
+             b--;
+              matricula.add(messageI+"/ Vacantes:"+b);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+         if(cursoII=="Luiggi Pasache / Seccion 1 / Martes / Horario: 12:00-8:00"){
+            if(r>0){
+              messageII = cursoII.toString();
+              
+             r--;
+              matricula.add(messageII+"/ Vacantes:"+r);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        
+       }else{
+        if(d>0){
+              messageII = cursoII.toString();
+             d--;
+              matricula.add(messageII+" / Vacantes:"+d);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+         
+         
+         
+         
+         if(cursoIII=="Francisco Sagasti / Seccion 1 / Miercoles / Horario: 18:00-22:00"){
+            if(e>0){
+              messageIII = cursoIII.toString();
+             e--;
+              matricula.add(messageIII+" / Vacantes:"+e);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        
+       }else{
+        if(f>0){
+              messageIII = cursoIII.toString();
+             f--;
+              matricula.add(messageIII+"/ Vacantes:"+f);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+         
+         
+         
+         
+            if(cursoIV=="Carlos Vazquez / Seccion 1 / Jueves / Horario: 17:00-22:00"){
+            if(h>0){
+              messageIV = cursoIV.toString();
+              h--;
+               matricula.add(messageIV+" / Vacantes:"+h);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        
+       }else{
+        if(g>0){
+              messageIV = cursoIV.toString();
+             g--;
+             matricula.add(messageIV+"/ Vacantes:"+g);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+       
+         
+            
+           if(cursoV=="Keiko Fujimori / Seccion 1 / Viernes / Horario: 8:00-12:00"){
+            if(l>0){
+              messageV = cursoV.toString();
+             l--;
+             matricula.add(messageV+"/ Vacantes:"+l);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        
+       }else{
+        if(j>0){
+              messageV = cursoV.toString();
+             j--;
+             matricula.add(messageV+"/ Vacantes:"+j);
+            }else{
+             JOptionPane.showMessageDialog(null, "No hay vacantes! ","error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
         matricula.add(ventana.alumno.getNombre());
         matricula.add(ventana.alumno.getApellido());
         
