@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Ingreso de notas</title>
+</head>
+<body>
+    <form class="form">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="head">Curso</th>
+                    <th class="head">Calificaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="course">Arquitectura de software</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-arq" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-arq" class="input" required>
+                            </div>
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-arq" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-arq" class="input" required>
+                            </div>                  
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-arq" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-arq" class="input" required>
+                            </div>      
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-arq" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-arq" value="" class="input" readonly>
+                            </div>
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="arq-button" class="button button-act button-hov" >
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course">Inteligencia artificial</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-int" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-int" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-int" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-int" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-int" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-int" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-int" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-int" value="" class="input" readonly>
+                            </div>
+                            
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="int-button" class="button button-act button-hov">
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course">Métodos formales para pruebas</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-met" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-met" class="input" required>  
+                            </div>
+                                                      
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-met" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-met" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-met" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-met" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-met" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-met" value="" class="input" readonly> 
+                            </div>
+                                                       
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="met-button" class="button button-act button-hov">
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course">Base de datos II</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-bd" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-bd" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-bd" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-bd" class="input" required>   
+                            </div>
+                                                     
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-bd" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-bd" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-bd" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-bd" value="" class="input" readonly>
+                            </div>
+                            
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="bd-button" class="button button-act button-hov">
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course">Redes y transmisión de datos</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-red" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-red" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-red" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-red" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-red" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-red" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-red" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-red" value="" class="input" readonly>
+                            </div>
+                            
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="red-button" class="button button-act button-hov">
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course">Experiencia y usabilidad de usuario</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-exp" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-exp" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-exp" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-exp" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-exp" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-exp" class="input" required>
+                            </div>
+                            
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-exp" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-exp" value="" class="input" readonly> 
+                            </div>
+                            
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="exp-button" class="button button-act button-hov">
+                        </div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="course">Gestión y proyectos de software</td>
+                    <td class="score">
+                        <div class="div-label">
+                            <label for="n1-ges" class="label">N1</label>
+                            <div class="div-input">
+                                <input type="number" id="n1-ges" class="input" required>
+                            </div>
+                        </div>
+                        <div class="div-label">
+                            <label for="n2-ges" class="label">N2</label>
+                            <div class="div-input">
+                                <input type="number" id="n2-ges" class="input" required>
+                            </div>
+                        </div>
+                        <div class="div-label">
+                            <label for="n3-ges" class="label">N3</label>
+                            <div class="div-input">
+                                <input type="number" id="n3-ges" class="input" required>
+                            </div>   
+                        </div>
+                        <div class="div-label">
+                            <label for="prom-ges" class="label">Promedio Final</label>
+                            <div class="div-input-prom">
+                                <input type="number" id="prom-ges" value="" class="input" readonly>
+                            </div>
+                        </div>
+                        <div class="div-button">
+                            <input type="button" value="Generar promedio final" id="ges-button" class="button button-act button-hov">
+                        </div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="btn-submit">
+            <input type="submit" value="Finalizar" id="button-submit" class="button-submit">
+        </div>
+        <div class="div-btn">
+            <a href="/index.html" class="btn-return btn-return-hov">Regresar</a>
+        </div>
+    </form>
+    <script src="/script.js"></script>
+</body>
+</html>
