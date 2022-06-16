@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import IngresoNotas from './pages/IngresoNotas';
 import ReporteNotas from './pages/ReporteNotas';
+import CreateCursoComponent from './components/CreateCursoComponent';
 
 function App(){
   return (
@@ -13,7 +14,7 @@ function App(){
     <Routes>
       <Route path='/' element={<Login/>} />
       <Route path='/home' element={<Home/>} />
-      <Route path='/ingreso-notas' element={<IngresoNotas/>} />
+      <Route path='/ingreso-notas' element={<CreateCursoComponent/>} />
       <Route path='/reporte-notas' element={<ReporteNotas/>} />
       <Route path='*' element={
         <div>
