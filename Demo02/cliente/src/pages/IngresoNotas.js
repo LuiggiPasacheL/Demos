@@ -262,7 +262,7 @@ function IngresoNotas(){
 		</table><div className="btn-submit">
 				<input type="submit" value="Finalizar" id="button-submit" className="button-submit" />
 			</div><div className="div-btn">
-				<a href="./index.html" className="btn-return btn-return-hov">Regresar</a>
+				<a href="./home" className="btn-return btn-return-hov">Regresar</a>
 			</div></>
 	);
 }
