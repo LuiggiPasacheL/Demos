@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import IngresoNotas from './pages/IngresoNotas';
 import ReporteNotas from './pages/ReporteNotas';
 import CreateCursoComponent from './components/CreateCursoComponent';
+import ReportCursoComponent from './components/ReportCursoComponent';
 
 function App(){
   return (
@@ -15,7 +16,8 @@ function App(){
       <Route path='/' element={<Login/>} />
       <Route path='/home' element={<Home/>} />
       <Route path='/ingreso-notas' element={<CreateCursoComponent/>} />
-      <Route path='/reporte-notas' element={<ReporteNotas/>} />
+      
+      <Route path='/reporte-notas' element={<ReportCursoComponent/>} />
       <Route path='*' element={
         <div>
           Esta ruta no existe
