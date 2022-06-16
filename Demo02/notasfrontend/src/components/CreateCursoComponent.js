@@ -22,8 +22,8 @@ class CreateCursoComponent extends Component {
      saveCurso=(e)=>{
       e.preventDefault();
       let curso={nombrecurso:this.state.nombrecurso,n1:this.state.n1,n2:this.state.n2,n3:this.state.n3,prom:this.state.prom};
-      console.log('hol')
-      console.log('tipo=>' + JSON.stringify(curso));
+      console.log('Curso guardado')
+      console.log('tipo =>' + JSON.stringify(curso));
      CursoService.createCurso(curso).then(res=>{
          this.props.history.push('/reporte-notas');
      })
@@ -64,15 +64,15 @@ class CreateCursoComponent extends Component {
                       <div className="card col-md-6 offset-md-3 offset-md-3"></div>
 
 
-                    <h3 className="text-center">Agregar  Notas de un curso</h3>
+                    <h3 className="text-center">Agregar notas de un curso</h3>
                     <div className="card-body">
                         <form>
 
                               
                         <div className="form-group">
                                
-                               <label>Nombre de Curso</label>
-                                   <input placeholder="nombre" name="n1" className="form-control"
+                               <label>Nombre del curso</label>
+                                   <input placeholder="Nombre" name="n1" className="form-control"
                                    value={this.state.nombrecurso}  onChange={this.changeNombreHandler}/>
    
                               </div>
@@ -81,7 +81,7 @@ class CreateCursoComponent extends Component {
                         <div className="form-group">
                                
                                <label>N1</label>
-                                   <input placeholder="n1" name="n1" className="form-control"
+                                   <input placeholder="0-20" name="n1" className="form-control"
                                    value={this.state.n1}  onChange={this.changeN1Handler}/>
    
                               </div>
@@ -91,7 +91,7 @@ class CreateCursoComponent extends Component {
                               <div className="form-group">
                                
                                <label>N2</label>
-                                   <input placeholder="n2" name="n2" className="form-control"
+                                   <input placeholder="0-20" name="n2" className="form-control"
                                    value={this.state.n2}  onChange={this.changeN2Handler}/>
    
    
@@ -100,7 +100,7 @@ class CreateCursoComponent extends Component {
                               <div className="form-group">
                                
                                <label>N3</label>
-                                   <input placeholder="n3" name="n3" className="form-control"
+                                   <input placeholder="0-20" name="n3" className="form-control"
                                    value={this.state.n3}  onChange={this.changeN3Handler}/>
    
    
@@ -108,14 +108,14 @@ class CreateCursoComponent extends Component {
 
                               <div className="form-group">
                                
-                               <label>PROM</label>
+                               <label>Promedio</label>
                                    <input placeholder="PROMEDIO" name="prom" className="form-control"
-                                    value={this.state.prom=((parseFloat(this.state.n1)+parseFloat(this.state.n2)+parseFloat(this.state.n3))/(3))}  onChange={this.changePromHandler}/>
+                                    value={this.state.prom=Math.round(((parseFloat(this.state.n1)+parseFloat(this.state.n2)+parseFloat(this.state.n3))/(3)))}  onChange={this.changePromHandler}/>
                                </div>
                    
-                              <button className="btn btn-success" onClick={this.saveCurso}>Guardar</button>
-                              <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancelar</button>
-                              <button className="btn btn-info" onClick={this.agregarotro.bind(this)} style={{marginLeft:"10px"}}>Agregar otro curso</button>
+                              <button className="btn btn-success" onClick={this.saveCurso} style={{marginLeft:"330px", marginTop: "10px"}}>Guardar</button>
+                              <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px", marginTop: "10px"}}>Cancelar</button>
+                              <button className="btn btn-info" onClick={this.agregarotro.bind(this)} style={{marginLeft:"10px", marginTop: "10px"}}>Agregar otro curso</button>
 
                         </form>
                        
