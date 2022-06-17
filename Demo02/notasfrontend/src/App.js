@@ -4,9 +4,10 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import Login from './pages/Login';
 import Home from './pages/Home';
-import IngresoNotas from './pages/IngresoNotas';
-import ReporteNotas from './pages/ReporteNotas';
+// import IngresoNotas from './pages/IngresoNotas';
+// import ReporteNotas from './pages/ReporteNotas';
 import CreateCursoComponent from './components/CreateCursoComponent';
+import ReporteNotasComponent from './components/ReporteNotasComponent';
 
 function App(){
   return (
@@ -15,7 +16,7 @@ function App(){
       <Route path='/' element={<Login/>} />
       <Route path='/home' element={<Home/>} />
       <Route path='/ingreso-notas' element={<CreateCursoComponent/>} />
-      <Route path='/reporte-notas' element={<ReporteNotas/>} />
+      <Route path='/reporte-notas' element={<ReporteNotasComponent/>} />
       <Route path='*' element={
         <div>
           Esta ruta no existe

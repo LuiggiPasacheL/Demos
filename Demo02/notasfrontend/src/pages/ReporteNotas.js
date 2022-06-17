@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ReporteNotas() {
-	return (
+    return (
         <table className="table">
             <thead>
                 <tr>
@@ -54,7 +54,7 @@ function ReporteNotas() {
                 </tr>
             </tbody>
         </table>
-	)
+    )
 }
 
 export default ReporteNotas;
