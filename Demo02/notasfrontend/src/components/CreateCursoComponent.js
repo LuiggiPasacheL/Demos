@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CursoService from '../service/CursoService';
+import { Navigate } from 'react-router-dom'
 
 class CreateCursoComponent extends Component {
     constructor(props) {
@@ -27,6 +28,7 @@ class CreateCursoComponent extends Component {
         CursoService.createCurso(curso).then(res => {
             console.log(res.data)
         })
+        window.location.href = "./reporte-notas";
     }
     changeNombreHandler = (event) => {
         this.setState({ nombrecurso: event.target.value });
@@ -114,7 +116,6 @@ class CreateCursoComponent extends Component {
                                 <button className="btn btn-success" onClick={this.saveCurso} style={{ marginLeft: "330px", marginTop: "10px" }}>Guardar</button>
                                 <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</button>
                                 <button className="btn btn-info" onClick={this.agregarotro.bind(this)} style={{ marginLeft: "10px", marginTop: "10px" }}>Agregar otro curso</button>
-
                             </form>
 
                         </div>

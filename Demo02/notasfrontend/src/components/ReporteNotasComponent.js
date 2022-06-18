@@ -11,32 +11,30 @@ class ReporteNotasComponent extends Component {
 
     componentDidMount() {
         CursoService.getCursos().then((res) => {
-            this.setState({ cursos: JSON.stringify(res.data) })
+            this.setState({ cursos: (res.data) })
             console.log(res.data)
         });
     }
 
     render() {
-        console.log('Cursos: ' + this.state.cursos)
-        const curso = this.state.cursos.map(curso => {
-            <tr>
-                <td className="course">{curso.nombrecurso}</td>
-                <td className="score">
-                    <span className="note" id="note-arq">{curso.prom}</span>
-                </td>
-            </tr>
-        })
-
         return (
-            <table className="table" >
+            <table className="table">
                 <thead>
                     <tr>
-                        <th className="head">Curso</th>
-                        <th className="head">Promedio final</th>
+                        <th className="head" style={{color: "black"}}>Curso</th>
+                        <th className="head" style={{color: "black"}}>Promedio final</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {curso}
+                    {
+                        this.state.cursos.map(
+                            curso =>
+                                <tr key={curso.nombre}>
+                                    <td> {curso.nombrecurso} </td>
+                                    <td> {curso.prom} </td>
+                                </tr>
+                        )
+                    }
                 </tbody>
             </table >
         )

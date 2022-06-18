@@ -8,7 +8,7 @@ import Home from './pages/Home';
 // import ReporteNotas from './pages/ReporteNotas';
 import CreateCursoComponent from './components/CreateCursoComponent';
 import ReporteNotasComponent from './components/ReporteNotasComponent';
-import ReportCursoComponent from './components/ReportCursoComponent';
+// import ReportCursoComponent from './components/ReportCursoComponent';
 
 function App(){
   return (
